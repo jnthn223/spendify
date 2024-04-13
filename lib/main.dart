@@ -14,7 +14,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Spendify',
-      theme: AppTheme.lightThemeMode,
+      theme: AppTheme.getTheme(context),
       home: const SignUpPage(),
     );
   }
