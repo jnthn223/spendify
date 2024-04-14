@@ -9,6 +9,10 @@ class AppTheme {
             width: 3,
           ),
           borderRadius: BorderRadius.circular(10));
+
+  static _getSystemBrightness(BuildContext context) =>
+      MediaQuery.of(context).platformBrightness;
+
   static final lightThemeMode = ThemeData.light().copyWith(
     scaffoldBackgroundColor: AppPallete.backgroundColor,
     inputDecorationTheme: InputDecorationTheme(
@@ -27,7 +31,14 @@ class AppTheme {
   );
 
   static ThemeData getTheme(BuildContext context) {
-    Brightness systemBrightness = MediaQuery.of(context).platformBrightness;
-    return systemBrightness == Brightness.dark ? darkThemeMode : lightThemeMode;
+    return _getSystemBrightness(context) == Brightness.dark
+        ? darkThemeMode
+        : lightThemeMode;
+  }
+
+  static Color getPrimaryTextColor(BuildContext context) {
+    return _getSystemBrightness(context) == Brightness.dark
+        ? AppPallete.primaryTextColorDark
+        : AppPallete.primaryTextColor;
   }
 }

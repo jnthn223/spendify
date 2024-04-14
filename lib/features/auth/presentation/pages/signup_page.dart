@@ -28,11 +28,15 @@ class _SignUpPageState extends State<SignUpPage> {
             SizedBox(height: 30),
             AuthField(hintText: 'Name'),
             SizedBox(height: 15),
-            AuthField(hintText: 'Email'),
+            AuthField(
+              hintText: 'Email',
+              icon: Icons.email_outlined,
+            ),
             SizedBox(height: 15),
             AuthField(
               hintText: 'Password',
               isObscureText: true,
+              icon: Icons.lock_open_outlined,
             ),
           ],
         ),
