@@ -21,6 +21,8 @@ class AuthField extends StatelessWidget {
       obscureText: isObscureText,
       decoration: InputDecoration(
         hintText: hintText,
+        labelText: hintText,
+        // floatingLabelBehavior: FloatingLabelBehavior.,
         prefixIcon: Padding(
           padding: EdgeInsets.only(
             left: 15,
