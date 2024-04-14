@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spendify/core/theme/theme.dart';
-import 'package:spendify/features/auth/presentation/pages/signup_page.dart';
+import 'package:spendify/features/auth/presentation/pages/login_page.dart';
 
 void main() {
   runApp(const MainApp());
@@ -15,7 +15,7 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Spendify',
       theme: AppTheme.getTheme(context),
-      home: const SignUpPage(),
+      home: const LoginPage(),
     );
   }
 }

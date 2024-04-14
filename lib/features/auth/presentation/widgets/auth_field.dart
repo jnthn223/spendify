@@ -7,18 +7,26 @@ class AuthField extends StatelessWidget {
   final bool isObscureText;
   final Color iconColor;
   final IconData icon;
+  final TextEditingController controller;
   const AuthField({
     super.key,
     required this.hintText,
     this.isObscureText = false,
     this.iconColor = AppPallete.accentColor1,
     this.icon = Icons.person,
+    required this.controller,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       obscureText: isObscureText,
+      validator: (value) {
+        if (value!.isEmpty) {
+          return "$hintText is missing!";
+        }
+        return null;
+      },
       decoration: InputDecoration(
         hintText: hintText,
         labelText: hintText,

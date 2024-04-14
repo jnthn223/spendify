@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:spendify/core/theme/app_pallete.dart';
-import 'package:spendify/features/auth/presentation/pages/login_page.dart';
+import 'package:spendify/features/auth/presentation/pages/signup_page.dart';
 import 'package:spendify/features/auth/presentation/widgets/auth_button.dart';
 import 'package:spendify/features/auth/presentation/widgets/auth_field.dart';
 
-class SignUpPage extends StatefulWidget {
+class LoginPage extends StatefulWidget {
   static route() => MaterialPageRoute(
-        builder: (context) => const LoginPage(),
+        builder: (context) => const SignUpPage(),
       );
-  const SignUpPage({super.key});
+  const LoginPage({super.key});
 
   @override
-  State<SignUpPage> createState() => _SignUpPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
+class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final nameController = TextEditingController();
@@ -40,19 +40,13 @@ class _SignUpPageState extends State<SignUpPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Sign Up',
+                  'Sign In',
                   style: GoogleFonts.rubik(
                     fontSize: 50,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 const SizedBox(height: 30),
-                AuthField(
-                  hintText: 'Name',
-                  iconColor: AppPallete.accentColor2,
-                  controller: nameController,
-                ),
-                const SizedBox(height: 15),
                 AuthField(
                   hintText: 'Email',
                   icon: Icons.email_outlined,
@@ -77,15 +71,15 @@ class _SignUpPageState extends State<SignUpPage> {
                 const SizedBox(height: 15),
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(context, SignUpPage.route());
+                    Navigator.push(context, LoginPage.route());
                   },
                   child: RichText(
                     text: TextSpan(
-                      text: 'Already have an account? ',
+                      text: 'Don\'t have an account yet? ',
                       style: Theme.of(context).textTheme.titleMedium,
                       children: [
                         TextSpan(
-                          text: 'Sign In',
+                          text: 'Sign Up',
                           style:
                               Theme.of(context).textTheme.titleMedium?.copyWith(
                                     color: AppPallete.accentColor1,
@@ -95,7 +89,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       ],
                     ),
                   ),
-                ),
+                )
               ],
             ),
           )),

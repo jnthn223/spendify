@@ -18,7 +18,8 @@ class AppTheme {
     inputDecorationTheme: InputDecorationTheme(
       contentPadding: const EdgeInsets.all(27),
       enabledBorder: _border(),
-      focusedBorder: _border(AppPallete.accentColor1),
+      focusedBorder: _border(),
+      errorBorder: _border(),
     ),
   );
   static final darkThemeMode = ThemeData.dark().copyWith(
@@ -26,7 +27,8 @@ class AppTheme {
     inputDecorationTheme: InputDecorationTheme(
       contentPadding: const EdgeInsets.all(27),
       enabledBorder: _border(AppPallete.primaryTextColorDark),
-      focusedBorder: _border(AppPallete.accentColor1),
+      focusedBorder: _border(AppPallete.primaryTextColorDark),
+      errorBorder: _border(AppPallete.primaryTextColorDark),
     ),
   );
 
