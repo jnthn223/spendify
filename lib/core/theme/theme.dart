@@ -20,6 +20,7 @@ class AppTheme {
       enabledBorder: _border(),
       focusedBorder: _border(),
       errorBorder: _border(),
+      focusedErrorBorder: _border(),
     ),
   );
   static final darkThemeMode = ThemeData.dark().copyWith(
@@ -29,6 +30,7 @@ class AppTheme {
       enabledBorder: _border(AppPallete.primaryTextColorDark),
       focusedBorder: _border(AppPallete.primaryTextColorDark),
       errorBorder: _border(AppPallete.primaryTextColorDark),
+      focusedErrorBorder: _border(AppPallete.primaryTextColorDark),
     ),
   );
 

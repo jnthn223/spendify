@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:spendify/core/theme/app_pallete.dart';
+import 'package:spendify/features/auth/domain/validation_schemas/auth.schema.dart';
 import 'package:spendify/features/auth/presentation/pages/login_page.dart';
 import 'package:spendify/features/auth/presentation/widgets/auth_button.dart';
 import 'package:spendify/features/auth/presentation/widgets/auth_field.dart';
@@ -51,6 +52,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   hintText: 'Name',
                   iconColor: AppPallete.accentColor2,
                   controller: nameController,
+                  validator: AuthValidationSchema.nameValidator,
                 ),
                 const SizedBox(height: 15),
                 AuthField(
@@ -58,6 +60,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   icon: Icons.email_outlined,
                   iconColor: AppPallete.accentColor3,
                   controller: emailController,
+                  validator: AuthValidationSchema.emailValidator,
                 ),
                 SizedBox(height: 15),
                 AuthField(
@@ -66,6 +69,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   icon: Icons.lock_open_outlined,
                   iconColor: AppPallete.accentColor4,
                   controller: passwordController,
+                  validator: AuthValidationSchema.passwordValidator,
                 ),
                 const SizedBox(height: 30),
                 AuthButton(

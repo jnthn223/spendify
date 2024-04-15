@@ -8,6 +8,8 @@ class AuthField extends StatelessWidget {
   final Color iconColor;
   final IconData icon;
   final TextEditingController controller;
+  final String? Function(String?)? validator;
+
   const AuthField({
     super.key,
     required this.hintText,
@@ -15,31 +17,27 @@ class AuthField extends StatelessWidget {
     this.iconColor = AppPallete.accentColor1,
     this.icon = Icons.person,
     required this.controller,
+    required this.validator,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       obscureText: isObscureText,
-      validator: (value) {
-        if (value!.isEmpty) {
-          return "$hintText is missing!";
-        }
-        return null;
-      },
+      validator: validator,
       decoration: InputDecoration(
         hintText: hintText,
         labelText: hintText,
         // floatingLabelBehavior: FloatingLabelBehavior.,
         prefixIcon: Padding(
-          padding: EdgeInsets.only(
+          padding: const EdgeInsets.only(
             left: 15,
             right: 10,
             top: 5,
             bottom: 5,
           ), // Adjust horizontal padding as needed
           child: Container(
-            padding: EdgeInsets.all(5),
+            padding: const EdgeInsets.all(5),
             decoration: BoxDecoration(
               border: Border.all(
                 color: AppTheme.getPrimaryTextColor(context),
