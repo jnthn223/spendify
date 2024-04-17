@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:spendify/core/theme/app_pallete.dart';
 import 'package:spendify/features/auth/domain/validation/auth.schema.dart';
+import 'package:spendify/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:spendify/features/auth/presentation/pages/login_page.dart';
 import 'package:spendify/features/auth/presentation/widgets/auth_button.dart';
 import 'package:spendify/features/auth/presentation/widgets/auth_field.dart';
@@ -75,7 +77,15 @@ class _SignUpPageState extends State<SignUpPage> {
                 AuthButton(
                   'Sign Up',
                   onPressed: () {
-                    formKey.currentState!.validate();
+                    if (formKey.currentState!.validate()) {
+                      context.read<AuthBloc>().add(
+                            AuthSignUp(
+                              email: emailController.text.trim(),
+                              password: passwordController.text.trim(),
+                              name: nameController.text.trim(),
+                            ),
+                          );
+                    }
                   },
                 ),
                 const SizedBox(height: 15),
