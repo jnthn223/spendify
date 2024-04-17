@@ -13,6 +13,7 @@ Future<void> initDependencies() async {
   final supabase = await Supabase.initialize(
       url: AppConfig.DB_URL, anonKey: AppConfig.DB_KEY);
   serviceLocator.registerLazySingleton(() => supabase.client);
+  _initAuth();
 }
 
 void _initAuth() {
