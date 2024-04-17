@@ -25,6 +25,7 @@ class AuthField extends StatelessWidget {
     return TextFormField(
       obscureText: isObscureText,
       validator: validator,
+      controller: controller,
       decoration: InputDecoration(
         hintText: hintText,
         labelText: hintText,

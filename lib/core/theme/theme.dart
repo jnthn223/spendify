@@ -19,8 +19,8 @@ class AppTheme {
       contentPadding: const EdgeInsets.all(27),
       enabledBorder: _border(),
       focusedBorder: _border(),
-      errorBorder: _border(),
-      focusedErrorBorder: _border(),
+      errorBorder: _border(AppPallete.errorColor),
+      focusedErrorBorder: _border(AppPallete.errorColor),
     ),
   );
   static final darkThemeMode = ThemeData.dark().copyWith(
@@ -29,8 +29,8 @@ class AppTheme {
       contentPadding: const EdgeInsets.all(27),
       enabledBorder: _border(AppPallete.primaryTextColorDark),
       focusedBorder: _border(AppPallete.primaryTextColorDark),
-      errorBorder: _border(AppPallete.primaryTextColorDark),
-      focusedErrorBorder: _border(AppPallete.primaryTextColorDark),
+      errorBorder: _border(AppPallete.errorColor),
+      focusedErrorBorder: _border(AppPallete.errorColor),
     ),
   );
 

@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   form_validator: ^2.1.1
+  fpdart: ^1.1.0
   google_fonts: ^6.2.1
 
 dev_dependencies:

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:spendify/core/theme/app_pallete.dart';
-import 'package:spendify/features/auth/domain/validation_schemas/auth.schema.dart';
+import 'package:spendify/features/auth/domain/validation/auth.schema.dart';
 import 'package:spendify/features/auth/presentation/pages/signup_page.dart';
 import 'package:spendify/features/auth/presentation/widgets/auth_button.dart';
 import 'package:spendify/features/auth/presentation/widgets/auth_field.dart';
