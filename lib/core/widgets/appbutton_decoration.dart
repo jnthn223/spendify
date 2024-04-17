@@ -23,7 +23,7 @@ class AppButtonDecoration extends StatelessWidget {
             BoxShadow(
                 blurRadius: 0,
                 color: AppTheme.getPrimaryTextColor(context),
-                offset: Offset(0, 4))
+                offset: const Offset(0, 4))
           ]),
       child: child,
     );

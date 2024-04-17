@@ -62,7 +62,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   controller: emailController,
                   validator: AuthValidationSchema.emailValidator,
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 AuthField(
                   hintText: 'Password',
                   isObscureText: true,

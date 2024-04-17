@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:spendify/core/constant/app.config.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:spendify/core/theme/theme.dart';
 import 'package:spendify/features/auth/presentation/pages/login_page.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final supabase = await Supabase.initialize(
+      url: AppConfig.DB_URL, anonKey: AppConfig.DB_KEY);
   runApp(const MainApp());
 }
 

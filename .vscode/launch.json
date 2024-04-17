@@ -1,0 +1,44 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "spendify -DEV",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--dart-define-from-file=env/dev.json"
+            ]
+        },
+        {
+            "name": "spendify -STG",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--dart-define-from-file=env/stg.json"
+            ]
+        },
+        {
+            "name": "spendify -PROD",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--dart-define-from-file=env/prod.json"
+            ]
+        },
+        {
+            "name": "spendify (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "spendify (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
