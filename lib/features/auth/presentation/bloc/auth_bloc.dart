@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:spendify/features/auth/domain/entities/user.dart';
 import 'package:spendify/features/auth/domain/usecases/user_sign_up.dart';
 
 part 'auth_event.dart';
@@ -16,8 +17,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           email: event.email, password: event.password, name: event.name));
       res.fold(
         (failure) => emit(AuthFailure(failure.message)),
-        (uid) => emit(
-          AuthSuccess(uid),
+        (user) => emit(
+          AuthSuccess(user),
         ),
       );
     });

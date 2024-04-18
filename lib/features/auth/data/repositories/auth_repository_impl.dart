@@ -1,5 +1,6 @@
 import 'package:fpdart/src/either.dart';
-import 'package:spendify/core/common/entities/user.dart';
+import 'package:spendify/features/auth/data/models/user.models.dart';
+import 'package:spendify/features/auth/domain/entities/user.dart';
 import 'package:spendify/core/error/exceptions.dart';
 import 'package:spendify/core/error/failure.dart';
 import 'package:spendify/features/auth/data/datasources/auth_remote.data_source.dart';
@@ -17,21 +18,21 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<Either<Failure, String>> loginWithEmailPassword(
+  Future<Either<Failure, User>> loginWithEmailPassword(
       {required String email, required String password}) {
     // TODO: implement loginWithEmailPassword
     throw UnimplementedError();
   }
 
   @override
-  Future<Either<Failure, String>> signUpWithEmailPassword(
+  Future<Either<Failure, User>> signUpWithEmailPassword(
       {required String name,
       required String email,
       required String password}) async {
     try {
-      final userId = await remoteDataSource.signUpWithEmailPassword(
+      final user = await remoteDataSource.signUpWithEmailPassword(
           name: name, email: email, password: password);
-      return right(userId);
+      return right(user);
     } on ServerException catch (e) {
       return left(Failure(e.message));
     }
