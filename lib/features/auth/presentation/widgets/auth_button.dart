@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:spendify/core/theme/app_pallete.dart';
-import 'package:spendify/core/widgets/appbutton_decoration.dart';
+import 'package:spendify/core/common/widgets/appbutton_decoration.dart';
 import 'package:spendify/core/theme/theme.dart';
 
 class AuthButton extends StatelessWidget {
