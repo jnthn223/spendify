@@ -1,5 +1,4 @@
-import 'package:fpdart/src/either.dart';
-import 'package:spendify/features/auth/data/models/user.models.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:spendify/features/auth/domain/entities/user.dart';
 import 'package:spendify/core/error/exceptions.dart';
 import 'package:spendify/core/error/failure.dart';

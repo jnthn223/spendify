@@ -3,6 +3,7 @@ import 'package:spendify/core/constant/app.config.dart';
 import 'package:spendify/features/auth/data/datasources/auth_remote.data_source.dart';
 import 'package:spendify/features/auth/data/repositories/auth_repository_impl.dart';
 import 'package:spendify/features/auth/domain/repository/auth.repository.dart';
+import 'package:spendify/features/auth/domain/usecases/current_user.dart';
 import 'package:spendify/features/auth/domain/usecases/user_sign_in.dart';
 import 'package:spendify/features/auth/domain/usecases/user_sign_up.dart';
 import 'package:spendify/features/auth/presentation/bloc/auth_bloc.dart';
@@ -25,8 +26,10 @@ void _initAuth() {
         () => AuthRepositoryImpl(serviceLocator()))
     ..registerFactory(() => UserSignUp(serviceLocator()))
     ..registerFactory(() => UserSignIn(serviceLocator()))
+    ..registerFactory(() => CurrentUser(serviceLocator()))
     ..registerLazySingleton(() => AuthBloc(
           userSignUp: serviceLocator(),
           userSignIn: serviceLocator(),
+          currentUser: serviceLocator(),
         ));
 }
