@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import 'package:spendify/core/common/cubits/app_user/app_user_cubit.dart';
 import 'package:spendify/core/constant/app.config.dart';
 import 'package:spendify/features/auth/data/datasources/auth_remote.data_source.dart';
 import 'package:spendify/features/auth/data/repositories/auth_repository_impl.dart';
@@ -16,6 +17,7 @@ Future<void> initDependencies() async {
       url: AppConfig.DB_URL, anonKey: AppConfig.DB_KEY);
   serviceLocator.registerLazySingleton(() => supabase.client);
   _initAuth();
+  serviceLocator.registerLazySingleton(() => AppUserCubit());
 }
 
 void _initAuth() {
@@ -31,5 +33,6 @@ void _initAuth() {
           userSignUp: serviceLocator(),
           userSignIn: serviceLocator(),
           currentUser: serviceLocator(),
+          appUserCubit: serviceLocator(),
         ));
 }

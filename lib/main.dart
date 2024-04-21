@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:spendify/core/common/cubits/app_user/app_user_cubit.dart';
 import 'package:spendify/core/init_dependencies.dart';
 import 'package:spendify/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:spendify/core/theme/theme.dart';
@@ -11,8 +12,11 @@ Future<void> main() async {
   runApp(MultiBlocProvider(
     providers: [
       BlocProvider(
+        create: (_) => serviceLocator<AppUserCubit>(),
+      ),
+      BlocProvider(
         create: (_) => serviceLocator<AuthBloc>(),
-      )
+      ),
     ],
     child: const MainApp(),
   ));
@@ -38,7 +42,21 @@ class _MainAppState extends State<MainApp> {
       debugShowCheckedModeBanner: false,
       title: 'Spendify',
       theme: AppTheme.getTheme(context),
-      home: const LoginPage(),
+      home: BlocSelector<AppUserCubit, AppUserState, bool>(
+        selector: (state) {
+          return state is AppUserSignedIn;
+        },
+        builder: (context, isSignedIn) {
+          if (isSignedIn) {
+            return const Scaffold(
+              body: Center(
+                child: Text('User Signed IN'),
+              ),
+            );
+          }
+          return const LoginPage();
+        },
+      ),
     );
   }
 }

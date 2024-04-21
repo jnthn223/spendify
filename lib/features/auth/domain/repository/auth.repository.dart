@@ -1,4 +1,4 @@
-import 'package:spendify/features/auth/domain/entities/user.dart';
+import 'package:spendify/core/common/entities/user.dart';
 import 'package:spendify/core/error/failure.dart';
 import 'package:fpdart/fpdart.dart';
 

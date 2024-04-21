@@ -1,7 +1,7 @@
 import 'package:fpdart/fpdart.dart';
 import 'package:spendify/core/error/failure.dart';
 import 'package:spendify/core/usercase/usecase.dart';
-import 'package:spendify/features/auth/domain/entities/user.dart';
+import 'package:spendify/core/common/entities/user.dart';
 import 'package:spendify/features/auth/domain/repository/auth.repository.dart';
 
 class UserSignUp implements UseCase<User, UserSignUpParams> {

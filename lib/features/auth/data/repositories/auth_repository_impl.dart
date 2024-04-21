@@ -1,5 +1,5 @@
 import 'package:fpdart/fpdart.dart';
-import 'package:spendify/features/auth/domain/entities/user.dart';
+import 'package:spendify/core/common/entities/user.dart';
 import 'package:spendify/core/error/exceptions.dart';
 import 'package:spendify/core/error/failure.dart';
 import 'package:spendify/features/auth/data/datasources/auth_remote.data_source.dart';
