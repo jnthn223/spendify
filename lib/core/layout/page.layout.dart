@@ -24,6 +24,7 @@ class PageLayout extends StatelessWidget {
       appBar: AppBar(
         title: Text(activePage.pageTitle),
       ),
+      body: activePage.build(context),
       bottomNavigationBar: BottomNavigationBar(
         items: pages
             .map((page) => BottomNavigationBarItem(

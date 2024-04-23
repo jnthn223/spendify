@@ -9,6 +9,7 @@ import 'package:spendify/features/auth/presentation/pages/login_page.dart';
 import 'package:spendify/features/budget/presentation/pages/budget.page.dart';
 import 'package:spendify/features/categories/presentation/pages/categories.page.dart';
 import 'package:spendify/features/dashboard/presentation/pages/dashboard.page.dart';
+import 'package:spendify/features/expenses/presentation/pages/expenses.page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,6 +45,7 @@ class _MainAppState extends State<MainApp> {
       const DashboardPage(),
       const CategoriesPage(),
       const BudgetPage(),
+      const ExpensesPage(),
     ];
     activePage = pages[0];
   }
