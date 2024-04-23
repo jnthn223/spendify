@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spendify/core/common/cubits/app_user/app_user_cubit.dart';
 import 'package:spendify/core/init_dependencies.dart';
+import 'package:spendify/core/layout/page.layout.dart';
 import 'package:spendify/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:spendify/core/theme/theme.dart';
 import 'package:spendify/features/auth/presentation/pages/login_page.dart';
+import 'package:spendify/features/budget/presentation/pages/budget.page.dart';
+import 'package:spendify/features/categories/presentation/pages/categories.page.dart';
+import 'package:spendify/features/dashboard/presentation/pages/dashboard.page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,10 +34,18 @@ class MainApp extends StatefulWidget {
 }
 
 class _MainAppState extends State<MainApp> {
+  late AppPage activePage;
+  late List<AppPage> pages;
   @override
   void initState() {
     super.initState();
     context.read<AuthBloc>().add(AuthIsUserSignedIn());
+    pages = [
+      const DashboardPage(),
+      const CategoriesPage(),
+      const BudgetPage(),
+    ];
+    activePage = pages[0];
   }
 
   @override
@@ -48,10 +60,14 @@ class _MainAppState extends State<MainApp> {
         },
         builder: (context, isSignedIn) {
           if (isSignedIn) {
-            return const Scaffold(
-              body: Center(
-                child: Text('User Signed IN'),
-              ),
+            return PageLayout(
+              pages: pages,
+              setActivePage: (page) {
+                setState(() {
+                  activePage = page;
+                });
+              },
+              activePage: activePage,
             );
           }
           return const LoginPage();
