@@ -6,6 +6,7 @@ import 'package:spendify/features/auth/data/repositories/auth_repository_impl.da
 import 'package:spendify/features/auth/domain/repository/auth.repository.dart';
 import 'package:spendify/features/auth/domain/usecases/current_user.dart';
 import 'package:spendify/features/auth/domain/usecases/user_sign_in.dart';
+import 'package:spendify/features/auth/domain/usecases/user_sign_out.dart';
 import 'package:spendify/features/auth/domain/usecases/user_sign_up.dart';
 import 'package:spendify/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -29,10 +30,12 @@ void _initAuth() {
     ..registerFactory(() => UserSignUp(serviceLocator()))
     ..registerFactory(() => UserSignIn(serviceLocator()))
     ..registerFactory(() => CurrentUser(serviceLocator()))
+    ..registerFactory(() => UserSignOut(serviceLocator()))
     ..registerLazySingleton(() => AuthBloc(
           userSignUp: serviceLocator(),
           userSignIn: serviceLocator(),
           currentUser: serviceLocator(),
           appUserCubit: serviceLocator(),
+          userSignOut: serviceLocator(),
         ));
 }
